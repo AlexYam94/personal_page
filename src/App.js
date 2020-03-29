@@ -1,26 +1,54 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { Component } from 'react';
 import './App.css';
+import PersonalInfo from './Components/Personal_Info/personal_info';
+import Link from './Components/Link/link';
+import winnie from './winnie.JPG';
+import Toolbar from './Components/toolbar/toolbar';
+import Sidebar from './Components/Sidebar/sidebar';
+import Backdrop from './Components/Backdrop/Backdrop';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      sidebarOpen: false
+    };
+  };
+
+  
+
+  sidebarToggleClickHandler = ()=>{
+    this.setState ((prevState) => {
+      return { sidebarOpen: !prevState.sidebarOpen };
+    });
+  }
+
+  backdropClickHandler = ()=>{
+    this.setState ({sidebarOpen: false});
+  }
+
+  render() {
+    let backdrop;
+
+    if (this.state.sidebarOpen) {
+      backdrop = <Backdrop click={this.backdropClickHandler}/>;
+    }
+
+
+    return (
+      <div style={{ height: '100%' }}>
+        <Toolbar sidebarClickHandler={this.sidebarToggleClickHandler}/>
+        <Sidebar show={this.state.sidebarOpen}/>
+        {backdrop}
+        <main style={{ marginTop: '64px' }}>
+          <PersonalInfo style={{ margin_top: 100 }}></PersonalInfo>
+          <Link></Link>
+        </main>
+      </div >
+    );
+  }
 }
+
+
 
 export default App;
