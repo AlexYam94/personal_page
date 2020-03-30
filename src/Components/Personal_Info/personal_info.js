@@ -9,11 +9,10 @@ class personal_info  extends React.Component{
     render(){
         return(
         <div className={classes.Personal_info}>
-            <p>Name: Yam Ming Hin</p>
+            <p>Name: Alex</p>
             <p>Hobby: Reading, playing video games(including RingFit Advanture)</p>
         </div>)
     }
-
 }
 
 export default personal_info;
