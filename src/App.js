@@ -6,14 +6,16 @@ import winnie from './winnie.JPG';
 import Toolbar from './Components/toolbar/toolbar';
 import Sidebar from './Components/Sidebar/sidebar';
 import Backdrop from './Components/Backdrop/Backdrop';
-import Game from './Components/Games/tic_tac_toe/Game';
+import Tic_tac_toe from './Components/Games/Tic_tac_toe/Game';
+import Hangman from './Components/Games/Hangman/hangman';
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
       sidebarOpen: false,
-      currentPage: 'main'
+      currentPage: 'main',
+      hangmanWord:  ""
     };
   };
 
@@ -41,15 +43,20 @@ class App extends Component {
     switch(this.state.currentPage){
       case 'main':
         mainView = (<div><PersonalInfo style={{ margin_top: 100 }}></PersonalInfo>
-          <Link></Link></div>);
+          </div>);
           break;
-      case 'game':
-        mainView = (<Game></Game>);
+      case 'tic_tac_toe':
+        mainView = (<Tic_tac_toe/>);
+        break;
+      case 'hangman':
+        mainView = (<Hangman/>);
         break;
       default:
         mainView = (<div><PersonalInfo style={{ margin_top: 100 }}></PersonalInfo>
-          <Link></Link></div>);
+          </div>);
     }
+
+    // mainView=(<Hangman></Hangman>)
 
     return (
       <div style={{ height: '100%' }}>
@@ -73,6 +80,19 @@ class App extends Component {
     this.setState({currentPage: view});
     this.sidebarToggleClickHandler();
   }
+
+  // ReadHangmanWord(filename){
+  //   fr = new FileReader();
+  //   fs.readFile(filename, function(err, data){
+  //     if(err){
+  //       throw err;
+  //     }
+  //     let words = data.split('\n');
+  //     this.setState({
+  //       hangmanWord:  words[Math.floor(Math.random()*words.length)]
+  //     });
+  //   });
+  // }
 }
 
 

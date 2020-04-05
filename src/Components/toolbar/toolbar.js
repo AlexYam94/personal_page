@@ -3,7 +3,7 @@ import winnie from '../../winnie.JPG'
 import classes from './toolbar.module.css';
 import SidebarToggleButton from '../Sidebar/sidebarToggleButton';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
-import Games from '../Games/tic_tac_toe/Game';
+import Games from '../Games/Tic_tac_toe/Game';
 
 const toolbar = props => (
     <header className={classes.toolbar}>
@@ -21,7 +21,9 @@ const toolbar = props => (
                     <li><a href="javascript:;" onClick={() => {props.toolbarClickHandler('main')}}>main</a></li>
                     <li><a href="/">Favourite games</a></li>
                     <li><a href="/">Favourite books</a></li>
-                    <li><a href="javascript:;" onClick={() => {props.toolbarClickHandler('game')}}>mini games</a></li>
+                    {/* <li><a href="javascript:;" onClick={() => {props.toolbarClickHandler('game')}}>mini games</a></li> */}
+                    <li><a href="javascript:;" onClick={() => {props.toolbarClickHandler('tic_tac_toe')}}>tic tac toe</a></li>
+                    <li><a href="javascript:;" onClick={() => {props.toolbarClickHandler('hangman')}}>hangman</a></li>
                 </ul>
             </div>
             </Router>
