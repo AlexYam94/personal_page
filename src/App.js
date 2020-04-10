@@ -8,6 +8,7 @@ import Sidebar from './Components/Sidebar/sidebar';
 import Backdrop from './Components/Backdrop/Backdrop';
 import Tic_tac_toe from './Components/Games/Tic_tac_toe/Game';
 import Hangman from './Components/Games/Hangman/hangman';
+import words from './words';
 
 class App extends Component {
   constructor(props) {
@@ -15,7 +16,8 @@ class App extends Component {
     this.state = {
       sidebarOpen: false,
       currentPage: 'main',
-      hangmanWord:  ""
+      hangmanWord:  words.data[Math.round(Math.random()*words.data.length)],
+      hangmanCounter: 9
     };
   };
 
@@ -49,7 +51,7 @@ class App extends Component {
         mainView = (<Tic_tac_toe/>);
         break;
       case 'hangman':
-        mainView = (<Hangman/>);
+        mainView = (<Hangman hangmanHandler={this.hangmanHandler} word={this.state.hangmanWord} counter={this.state.hangmanCounter}/>);
         break;
       default:
         mainView = (<div><PersonalInfo style={{ margin_top: 100 }}></PersonalInfo>
@@ -81,6 +83,25 @@ class App extends Component {
     this.sidebarToggleClickHandler();
   }
 
+  hangmanHandler = (event,index) => {
+    // console.log("hangmanHandler");
+    // console.log(index);
+    if(event.target.value==""||event.target.value==null){
+      return;
+    }
+    // console.log(this.state.hangmanWord[index]);
+    // console.log(event.target.value);
+    if(this.state.hangmanWord[index]===event.target.value){
+      console.log(event.target.value);
+      console.log("match: " + index);
+    }else{
+      this.setState((prev) => {
+        return {hangmanCounter: prev.hangmanCounter--}
+      });
+    }
+  }
+
+  GetHangmanWord
   // ReadHangmanWord(filename){
   //   fr = new FileReader();
   //   fs.readFile(filename, function(err, data){
