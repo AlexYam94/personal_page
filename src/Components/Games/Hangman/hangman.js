@@ -1,34 +1,68 @@
-import React from "react";
+import React, {useEffect} from "react";
 import classes from "./hangman.module.css";
 
-//props.word
-//e.g. popo
-//_ _ _ _
-//enter p
-//p _ _ _
+/*TODO:
+    better alignment
+    try another word logic
+*/
 
-const hangman = (props) => {
-    let answerBoxes = props.word.split("").map((char, index) => {
-        return <input maxLength="1" onChange={(event, key) => { props.hangmanHandler(event, index); }}></input>
-    });
-    console.log(answerBoxes);
+
+const Hangman = (props) => {
+    useEffect(() => {
+        console.log("useEffect");
+        props.resetHangmangHandler();
+    },[]);
+
     return (
         <div>
-            <svg width="500" height="550">
-                {props.counter < 9 ? <DrawGallowBase /> : null}
-                {props.counter < 8 ? <DrawGallowPost /> : null}
-                {props.counter < 7 ? <DrawGallowTop /> : null}
-                {props.counter < 6 ? <DrawGallowRope /> : null}
-                {props.counter < 5 ? <DrawHead /> : null}
-                {props.counter < 4 ? <DrawBody /> : null}
-                {props.counter < 3 ? <DrawLeftHand /> : null}
-                {props.counter < 2 ? <DrawRightHand /> : null}
-                {props.counter < 1 ? <DrawLeftLeg /> : null}
-                {props.counter < 0 ? <DrawRightLeg /> : null}
-            </svg>
-            {answerBoxes}
+            {props.hangmanCorrectCounter > 0 ?
+                <div>
+                <DrawHangman counter={props.counter} word={props.word} hangmanHandler={props.hangmanHandler} resetHangmangHandler={props.resetHangmangHandler}/>
+                <button onClick={props.resetHangmangHandler}>Try other word</button>
+                </div>
+                :
+                <div>
+                <p>You Win</p>
+                <NewGame resetHangmangHandler={props.resetHangmangHandler}/>
+                </div>
+            }
         </div>
     );
+};
+
+const DrawHangman = (props) => {
+    let answerBoxes = props.word.split("").map((char, index) => {
+        return <input maxLength="1" 
+        onChange={(event, key) => { 
+            if(!/^[a-z]$/.test(event.target.value)){
+                event.target.value="";
+                return;
+            }
+            props.hangmanHandler(event, index); 
+        }}></input>
+    });
+
+    return(
+        <div>
+                    <svg width="500" height="550">
+                        {props.counter < 9 ? <DrawGallowBase /> : null}
+                        {props.counter < 8 ? <DrawGallowPost /> : null}
+                        {props.counter < 7 ? <DrawGallowTop /> : null}
+                        {props.counter < 6 ? <DrawGallowRope /> : null}
+                        {props.counter < 5 ? <DrawHead /> : null}
+                        {props.counter < 4 ? <DrawBody /> : null}
+                        {props.counter < 3 ? <DrawLeftHand /> : null}
+                        {props.counter < 2 ? <DrawRightHand /> : null}
+                        {props.counter < 1 ? <DrawLeftLeg /> : null}
+                        {props.counter < 0 ? <DrawRightLeg /> : null}
+                    </svg>
+                    {props.counter < 0 ? <div><p>You Dead. The answer is: "{props.word}"</p><NewGame resetHangmangHandler={props.resetHangmangHandler}/></div> : answerBoxes}
+                </div>
+    )
+};
+
+const NewGame = (props) => {
+    return <button onClick={props.resetHangmangHandler}>New Game</button>
 };
 
 const DrawGallowBase = () => {
@@ -91,4 +125,4 @@ const DrawRightLeg = () => {
     );
 };
 
-export default hangman;
+export default Hangman;

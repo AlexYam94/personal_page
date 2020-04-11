@@ -13,11 +13,14 @@ import words from './words';
 class App extends Component {
   constructor(props) {
     super(props);
+    // let hangmanWord = words.data[Math.round(Math.random()*words.data.length)];
+    // let hangmanCorrectCounter = hangmanWord.length;
     this.state = {
       sidebarOpen: false,
       currentPage: 'main',
-      hangmanWord:  words.data[Math.round(Math.random()*words.data.length)],
-      hangmanCounter: 9
+      hangmanWord:  "",
+      hangmanLifeCounter: 0,
+      hangmanCorrectCounter: 0
     };
   };
 
@@ -51,7 +54,7 @@ class App extends Component {
         mainView = (<Tic_tac_toe/>);
         break;
       case 'hangman':
-        mainView = (<Hangman hangmanHandler={this.hangmanHandler} word={this.state.hangmanWord} counter={this.state.hangmanCounter}/>);
+        mainView = (<Hangman resetHangmangHandler={this.resetHangmanHandler} hangmanHandler={this.hangmanHandler} word={this.state.hangmanWord} counter={this.state.hangmanLifeCounter} hangmanCorrectCounter={this.state.hangmanCorrectCounter}/>);
         break;
       default:
         mainView = (<div><PersonalInfo style={{ margin_top: 100 }}></PersonalInfo>
@@ -84,36 +87,31 @@ class App extends Component {
   }
 
   hangmanHandler = (event,index) => {
-    // console.log("hangmanHandler");
-    // console.log(index);
     if(event.target.value==""||event.target.value==null){
       return;
     }
-    // console.log(this.state.hangmanWord[index]);
-    // console.log(event.target.value);
     if(this.state.hangmanWord[index]===event.target.value){
-      console.log(event.target.value);
-      console.log("match: " + index);
+      event.target.disabled = true;
+      this.setState((prev) => {
+        return {hangmanCorrectCounter: prev.hangmanCorrectCounter--}
+      });
+      
     }else{
       this.setState((prev) => {
-        return {hangmanCounter: prev.hangmanCounter--}
+        return {hangmanLifeCounter: prev.hangmanLifeCounter--}
       });
     }
   }
 
-  GetHangmanWord
-  // ReadHangmanWord(filename){
-  //   fr = new FileReader();
-  //   fs.readFile(filename, function(err, data){
-  //     if(err){
-  //       throw err;
-  //     }
-  //     let words = data.split('\n');
-  //     this.setState({
-  //       hangmanWord:  words[Math.floor(Math.random()*words.length)]
-  //     });
-  //   });
-  // }
+  resetHangmanHandler = () => {
+    let hangmanWord = words.data[Math.round(Math.random()*words.data.length)];
+    let hangmanCorrectCounter = hangmanWord.length;
+    this.setState({
+      hangmanCorrectCounter: hangmanCorrectCounter,
+      hangmanLifeCounter: 9,
+      hangmanWord: hangmanWord
+    })
+  }
 }
 
 
