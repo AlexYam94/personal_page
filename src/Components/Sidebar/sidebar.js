@@ -1,5 +1,5 @@
 import React from 'react';
-import classes from './sidebar.module.css';
+import classes from './Sidebar.module.css';
 
 const sidebar = props => {
     let sidebarClasses = [classes.sidebar];

@@ -1,5 +1,5 @@
 import React from 'react';
-import classes from './sidebarToggleButton.module.css';
+import classes from './SidebarToggleButton.module.css';
 import winnie from '../../winnie.JPG'
 
 const sidebarToggleButton = props => (

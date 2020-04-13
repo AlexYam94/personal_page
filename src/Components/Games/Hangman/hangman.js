@@ -1,5 +1,5 @@
 import React, {useEffect} from "react";
-import classes from "./hangman.module.css";
+import classes from "./Hangman.module.css";
 
 /*TODO:
     better alignment
@@ -32,7 +32,7 @@ const Hangman = (props) => {
 
 const DrawHangman = (props) => {
     let answerBoxes = props.word.split("").map((char, index) => {
-        return <input maxLength="1" 
+        return <input maxLength="1" key={index}
         onChange={(event, key) => { 
             if(!/^[a-z]$/.test(event.target.value)){
                 event.target.value="";
@@ -67,25 +67,25 @@ const NewGame = (props) => {
 
 const DrawGallowBase = () => {
     return (
-        <line x1="100" y1="480" x2="500" y2="480" stroke="black" strokerWidth="2" />
+        <line x1="100" y1="480" x2="500" y2="480" stroke="black" strokeWidth="2" />
     );
 };
 
 const DrawGallowPost = () => {
     return (
-        <line x1="200" y1="80" x2="200" y2="480" stroke="black" strokerWidth="2" />
+        <line x1="200" y1="80" x2="200" y2="480" stroke="black" strokeWidth="2" />
     );
 };
 
 const DrawGallowTop = () => {
     return (
-        <line x1="200" y1="80" x2="450" y2="80" stroke="black" strokerWidth="2" />
+        <line x1="200" y1="80" x2="450" y2="80" stroke="black" strokeWidth="2" />
     );
 };
 
 const DrawGallowRope = () => {
     return (
-        <line x1="320" y1="80" x2="320" y2="190" stroke="black" strokerWidth="2" />
+        <line x1="320" y1="80" x2="320" y2="190" stroke="black" strokeWidth="2" />
     );
 }
 
