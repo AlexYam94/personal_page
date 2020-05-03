@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/personal_page/static/css/main.ab710a9b.chunk.css",
+    "main.js": "/personal_page/static/js/main.bac569b3.chunk.js",
+    "main.js.map": "/personal_page/static/js/main.bac569b3.chunk.js.map",
+    "runtime-main.js": "/personal_page/static/js/runtime-main.5d1b05b6.js",
+    "runtime-main.js.map": "/personal_page/static/js/runtime-main.5d1b05b6.js.map",
+    "static/js/2.c622ebdc.chunk.js": "/personal_page/static/js/2.c622ebdc.chunk.js",
+    "static/js/2.c622ebdc.chunk.js.map": "/personal_page/static/js/2.c622ebdc.chunk.js.map",
+    "index.html": "/personal_page/index.html",
+    "precache-manifest.647d17b33b44f3fa221fd42f8b5cdef3.js": "/personal_page/precache-manifest.647d17b33b44f3fa221fd42f8b5cdef3.js",
+    "service-worker.js": "/personal_page/service-worker.js",
+    "static/css/main.ab710a9b.chunk.css.map": "/personal_page/static/css/main.ab710a9b.chunk.css.map",
+    "static/js/2.c622ebdc.chunk.js.LICENSE.txt": "/personal_page/static/js/2.c622ebdc.chunk.js.LICENSE.txt",
+    "static/media/winnie.JPG": "/personal_page/static/media/winnie.3b178e39.JPG"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.5d1b05b6.js",
+    "static/js/2.c622ebdc.chunk.js",
+    "static/css/main.ab710a9b.chunk.css",
+    "static/js/main.bac569b3.chunk.js"
+  ]
+}
