@@ -17,7 +17,7 @@ class App extends Component {
     // let hangmanCorrectCounter = hangmanWord.length;
     this.state = {
       sidebarOpen: false,
-      currentPage: 'snake',
+      currentPage: 'main',
       hangmanWord: "",
       hangmanLifeCounter: 0,
       hangmanCorrectCounter: 0,
