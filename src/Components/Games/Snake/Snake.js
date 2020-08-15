@@ -60,10 +60,10 @@ const Snake = (props) => {
 
     const checkBodyLoc = (x, y, checkDead) => {
         let i = 0;
-        if (!checkDead && x == xRef.current && y == yRef.current)
+        if (!checkDead && x === xRef.current && y === yRef.current)
             return false;
         for (; i < bodyRef.current.length; i++) {
-            if (x == bodyRef.current[i].x && y == bodyRef.current[i].y)
+            if (x === bodyRef.current[i].x && y === bodyRef.current[i].y)
                 return false;
         }
         return true;
@@ -86,54 +86,63 @@ const Snake = (props) => {
         //add new body to current head loc
         //head loc = food loc
         let newBody = bodyRef.current;
+        let nextloc;
         switch (keyCode) {
             case 87:
-                if (yRef.current - 25 == foodRef.current.y && xRef.current == foodRef.current.x) {
+                nextloc = yRef.current - 25;
+                nextloc < 0? nextloc = 500 : nextloc=nextloc;
+                if (nextloc === foodRef.current.y && xRef.current === foodRef.current.x) {
                     newBody = bodyRef.current;
                     newBody.unshift({ x: xRef.current, y: yRef.current });
                     bodyRef.current = newBody;
                     setBody(newBody);
                     yRef.current = foodRef.current.y;
-                    setLocY((prevState) => prevState - 25);
+                    setLocY(nextloc);
                     foodRef.current = foodLocGen()
                     setFood(foodRef.current);
                     return true;
                 }
                 break;
             case 83:
-                if (yRef.current + 25 == foodRef.current.y && xRef.current == foodRef.current.x) {
+                nextloc = yRef.current + 25;
+                nextloc > 500? nextloc = 0 : nextloc=nextloc;
+                if (nextloc === foodRef.current.y && xRef.current === foodRef.current.x) {
                     newBody = bodyRef.current;
                     newBody.unshift({ x: xRef.current, y: yRef.current });
                     bodyRef.current = newBody;
                     setBody(newBody);
                     yRef.current = foodRef.current.y;
-                    setLocY((prevState) => prevState + 25);
+                    setLocY(nextloc);
                     foodRef.current = foodLocGen()
                     setFood(foodRef.current);
                     return true;
                 }
                 break;
             case 65:
-                if (xRef.current - 25 == foodRef.current.x && yRef.current == foodRef.current.y) {
+                nextloc = xRef.current - 25;
+                nextloc < 0? nextloc = 500 : nextloc=nextloc;
+                if (nextloc === foodRef.current.x && yRef.current === foodRef.current.y) {
                     newBody = bodyRef.current;
                     newBody.unshift({ x: xRef.current, y: yRef.current });
                     bodyRef.current = newBody;
                     setBody(newBody);
                     xRef.current = foodRef.current.x;
-                    setLocX((prevState) => prevState - 25);
+                    setLocX(nextloc);
                     foodRef.current = foodLocGen()
                     setFood(foodRef.current);
                     return true;
                 }
                 break;
             case 68:
-                if (xRef.current + 25 == foodRef.current.x && yRef.current == foodRef.current.y) {
+                nextloc = xRef.current + 25;
+                nextloc > 500? nextloc = 0 : nextloc=nextloc;
+                if (nextloc === foodRef.current.x && yRef.current === foodRef.current.y) {
                     newBody = bodyRef.current;
                     newBody.unshift({ x: xRef.current, y: yRef.current });
                     bodyRef.current = newBody;
                     setBody(newBody);
                     xRef.current = foodRef.current.x;
-                    setLocX((prevState) => prevState + 25);
+                    setLocX(nextloc);
                     foodRef.current = foodLocGen()
                     setFood(foodRef.current);
                     return true;
@@ -150,7 +159,7 @@ const Snake = (props) => {
         switch (event.keyCode) {
             case 87:
                 //move up
-                if (bodyRef.current[0].x == xRef.current && bodyRef.current[0].y == yRef.current - 25) {
+                if (bodyRef.current[0].x === xRef.current && bodyRef.current[0].y === yRef.current - 25) {
                     break;
                 }
                 // setBody(newBody);
@@ -167,7 +176,7 @@ const Snake = (props) => {
                 break;
             case 83:
                 //move down
-                if (bodyRef.current[0].x == xRef.current && bodyRef.current[0].y == yRef.current + 25) {
+                if (bodyRef.current[0].x === xRef.current && bodyRef.current[0].y === yRef.current + 25) {
                     break;
                 }
 
@@ -183,7 +192,7 @@ const Snake = (props) => {
                 break;
             case 65:
                 //move left
-                if (bodyRef.current[0].x == xRef.current - 25 && bodyRef.current[0].y == yRef.current) {
+                if (bodyRef.current[0].x === xRef.current - 25 && bodyRef.current[0].y === yRef.current) {
                     break;
                 }
                 if (!snakeFoodHandler(event.keyCode)) {
@@ -198,7 +207,7 @@ const Snake = (props) => {
                 break;
             case 68:
                 //move right
-                if (bodyRef.current[0].x == xRef.current + 25 && bodyRef.current[0].y == yRef.current) {
+                if (bodyRef.current[0].x === xRef.current + 25 && bodyRef.current[0].y === yRef.current) {
                     break;
                 }
                 if (!snakeFoodHandler(event.keyCode)) {
@@ -228,6 +237,8 @@ const Snake = (props) => {
                 <rect x={food.x} y={food.y} width="20" height="20" stroke="red" stroke-width="3" fill="red" />
                 <rect x={locX} y={locY} width="20" height="20" stroke="black" fill="white" strokeWidth="2" />
             </svg>
+            <br/>
+            <label style={{display:"inline"}}>use <b>w a s d</b> to control</label>
         </div>
     )
 };
