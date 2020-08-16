@@ -1,0 +1,35 @@
+.note {
+  text-decoration:none;
+  color:#000;
+  background:#ffc;
+  display:block;
+  height:10em;
+  width:10em;
+  padding:1em;
+  list-style:none;
+  margin:1em;
+  float: left;
+}
+
+.note h2{
+    font-size:140%;
+    font-weight:bold;
+    padding-bottom:10px;
+}
+
+.note p{
+  font-family:"Reenie Beanie",arial,sans-serif;
+  font-size:90%;
+}
+
+.removeBtn {
+    float: Right;
+    display: inline-flex;
+    background-color: #ffc;
+    border: 0cm;
+}
+
+.form {
+    display: inline-block;
+    width:100%;
+}

@@ -19,12 +19,11 @@ const toolbar = props => (
             <div className={classes.toolbar_navigation_items}>
                 <ul>
                     <li><a href="javascript:;" onClick={() => {props.toolbarClickHandler('main')}}>main</a></li>
-                    <li><a href="/">Favourite games</a></li>
-                    <li><a href="/">Favourite books</a></li>
                     {/* <li><a href="javascript:;" onClick={() => {props.toolbarClickHandler('game')}}>mini games</a></li> */}
                     <li><a href="javascript:;" onClick={() => {props.toolbarClickHandler('tic_tac_toe')}}>tic tac toe</a></li>
                     <li><a href="javascript:;" onClick={() => {props.toolbarClickHandler('hangman')}}>hangman</a></li>
                     <li><a href="javascript:;" onClick={() => {props.toolbarClickHandler('snake')}}>snake</a></li>
+                    <li><a href="javascript:;" onClick={() => {props.toolbarClickHandler('todo')}}>todo list</a></li>
                 </ul>
             </div>
             </Router>

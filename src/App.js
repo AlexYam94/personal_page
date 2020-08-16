@@ -8,6 +8,7 @@ import Backdrop from './Components/Backdrop/Backdrop';
 import Tic_tac_toe from './Components/Games/Tic_tac_toe/Game';
 import Hangman from './Components/Games/Hangman/Hangman';
 import Snake from './Components/Games/Snake/Snake';
+import Todo from './Components/Todo/Todo';
 import words from './words';
 
 class App extends Component {
@@ -56,6 +57,9 @@ class App extends Component {
       case 'snake':
         mainView = <Snake snakeMoveHandler={this.snakeMoveHandler} snake={this.state.snake} />;
         break;
+      case 'todo':
+          mainView = <Todo />;
+          break;
       default:
         mainView = (<div><PersonalInfo style={{ margin_top: 100 }}></PersonalInfo></div>);
     }
@@ -99,18 +103,21 @@ class App extends Component {
   }
 
   hangmanHandler = (event, index) => {
+    console.log(event.target.value);
+    console.log(index);
+    console.log(this.state.hangmanWord[index]);
     if (event.target.value == "" || event.target.value == null) {
       return;
     }
     if (this.state.hangmanWord[index] === event.target.value) {
       event.target.disabled = true;
       this.setState((prev) => {
-        return { hangmanCorrectCounter: prev.hangmanCorrectCounter-- }
+        return { hangmanCorrectCounter: prev.hangmanCorrectCounter-1 }
       });
 
     } else {
       this.setState((prev) => {
-        return { hangmanLifeCounter: prev.hangmanLifeCounter-- }
+        return { hangmanLifeCounter: prev.hangmanLifeCounter-1 }
       });
     }
   }
