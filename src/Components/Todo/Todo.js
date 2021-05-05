@@ -7,20 +7,34 @@ const Todo = (props) => {
     const [event, setEvent] = useState("");
     const [dueDate, setDueDate] = useState("");
     const [id, setId] = useState(0);
+    const [key, setKey] = useState("");
+    const [searchKey, setSearchKey] = useState("");
 
     useEffect(() => {
         getTodos();
     }, [])
 
     const getTodos = () => {
-        fetch("http://127.0.0.1:5000/read")
+        let data = {
+            "searchKey": searchKey
+        };
+        const requestOptions = {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        }
+        // fetch("http://127.0.0.1:5000/read", requestOptions)
+        fetch("http://testpy37-env.eba-re4rth2i.us-east-2.elasticbeanstalk.com/read", requestOptions)
             .then((res) => res.json())
             .then((result) => {
-                if (result.data == null){
+                if (result.data == null) {
                     setErrorText(result.error);
                     setTodo([]);
                 }
-                else{
+                else {
                     setErrorText("");
                     setTodo(result.data)
                 }
@@ -29,8 +43,8 @@ const Todo = (props) => {
 
     const submitForm = async (e) => {
         e.preventDefault();
-        if(dueDate==""){
-            alert("Fuck you")
+        if (dueDate == "") {
+            alert("Due date not entered");
             return;
         }
         let today = new Date()
@@ -38,8 +52,9 @@ const Todo = (props) => {
         let data = {
             "id": id + 1
             , "event": event
-            , "create_date": today.getFullYear() + "-" + ("0"+(parseInt(today.getMonth()) + 1)).slice(-2,2) + "-" + today.getDate() 
+            , "create_date": today.getFullYear() + "-" + ("0" + (parseInt(today.getMonth()) + 1)).slice(-2, 2) + "-" + today.getDate()
             , "due_date": dueDate
+            , "key": key
         };
         console.log(data);
         const requestOptions = {
@@ -54,13 +69,15 @@ const Todo = (props) => {
         //     .then(res => res.json())
         //     .then(response => console.log(response))
         //     .then(setTimeout(getTodos(),5000));
-        let response = await fetch("http://127.0.0.1:5000/save", requestOptions);
+        // let response = await fetch("http://127.0.0.1:5000/save", requestOptions);
+        let response = await fetch("http://testpy37-env.eba-re4rth2i.us-east-2.elasticbeanstalk.com/save", requestOptions);
         console.log(response.json());
         getTodos();
     }
 
     const deleteTodo = async (id) => {
-        await fetch("http://127.0.0.1:5000/delete?id=" + id);
+        // await fetch("http://127.0.0.1:5000/delete?id=" + id);
+        await fetch("http://testpy37-env.eba-re4rth2i.us-east-2.elasticbeanstalk.com/delete?id=" + id);
         getTodos();
     }
 
@@ -68,13 +85,13 @@ const Todo = (props) => {
     todoList = todo.map((value, index) => {
         if (parseInt(value["id"]) > id)
             setId(parseInt(value["id"]))
-            return <div id={index} class={classes.note}>
-                {/* event: {value["event"]}, create date: {value["create_date"]}, due date: {value["due_date"]}   */}
-                <button className={classes.removeBtn} onClick={() => { deleteTodo(value["id"]) }}>X</button>
-                <h2>{value["event"]}</h2>
-                <p>Start: {value["create_date"]}</p>
-                <p>Due: {value["due_date"]}</p>
-            </div>
+        return <div key={index} className={classes.note}>
+            {/* event: {value["event"]}, create date: {value["create_date"]}, due date: {value["due_date"]}   */}
+            <button className={classes.removeBtn} onClick={() => { deleteTodo(value["id"]) }}>X</button>
+            <h2>{value["event"]}</h2>
+            <p>Start: {value["create_date"]}</p>
+            <p>Due: {value["due_date"]}</p>
+        </div>
     })
     // let todoList = [];
     // for (let key in todo) {
@@ -90,14 +107,19 @@ const Todo = (props) => {
 
     return (
         <div>
+            <form>
+                {/* <label>key: <input type="text" id="searchKey" style={{ width: 100 }} onChange={(e) => { setSearchKey(e.target.value) }} /></label> */}
+                {/* <button onClick={(e) => {e.preventDefault(); getTodos()} }>Search</button> */}
+            </form>
             {todoList}
             {errorText}
             <br />
-            <form className={classes.form}>
-                <label style={{ marginLeft: 10 }}>event:</label> <input type="text" id="event" style={{ width: 100 }} onChange={(e) => { setEvent(e.target.value) }} />
-                <label style={{ marginLeft: 10 }}>due date:</label> <input type="date" id="dueDate" style={{ width: "130px" }} onChange={(e) => { setDueDate(e.target.value) }} />
+            <form>
+                <label>event:</label> <input type="text" id="event" style={{ width: 100 }} onChange={(e) => { setEvent(e.target.value) }} />
+                <label>due date:</label> <input type="date" id="dueDate" style={{ width: "130px" }} onChange={(e) => { setDueDate(e.target.value) }} />
                 <br />
-                <button onClick={submitForm}>Add</button>
+                {/* <label>key: <input type="text" id="key" style={{ width: 100 }} onChange={(e) => { setKey(e.target.value) }} /></label> */}
+                <button onClick={submitForm} style={{marginLeft: "20px"}}>Add</button>
             </form>
         </div>
     );
