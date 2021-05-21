@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
+import { BrowserRouter as Router, Route, Switch, withRouter} from 'react-router-dom'
 import './App.css';
 import PersonalInfo from './Components/Personal_Info/Personal_info';
-import Link from './Components/Link/link';
 import Toolbar from './Components/toolbar/Toolbar';
 import Sidebar from './Components/Sidebar/Sidebar';
 import Backdrop from './Components/Backdrop/Backdrop';
-import Tic_tac_toe from './Components/Games/Tic_tac_toe/Game';
-import Hangman from './Components/Games/Hangman/Hangman';
-import Snake from './Components/Games/Snake/Snake';
+import Unity_games from './Components/UnityGames/UnityGames';
+import Tic_tac_toe from './Components/MiniGames/Tic_tac_toe/Game';
+import Hangman from './Components/MiniGames/Hangman/Hangman';
+import Snake from './Components/MiniGames/Snake/Snake';
 import Todo from './Components/Todo/Todo';
 import words from './words';
 
@@ -48,6 +49,9 @@ class App extends Component {
         mainView = (<div><PersonalInfo style={{ margin_top: 100 }}></PersonalInfo>
         </div>);
         break;
+        case 'unity_games':
+          mainView = (<Unity_games/>);
+          break;
       case 'tic_tac_toe':
         mainView = (<Tic_tac_toe />);
         break;
@@ -79,17 +83,47 @@ class App extends Component {
 
     // mainView=(<Hangman></Hangman>)
 
+    // return (
+    //   <div style={{ height: '100%' }}>
+    //     <Toolbar toolbarClickHandler={this.toolbarClickHandler} sidebarClickHandler={this.sidebarToggleClickHandler} />
+    //     <Sidebar sidebarClickHandler={this.sidebarClickHandler} show={this.state.sidebarOpen} />
+    //     {backdrop}
+    //     <main style={{ marginTop: '64px' }}>
+    //       {mainView}
+    //     </main>
+    //   </div >
+    // );
+
     return (
       <div style={{ height: '100%' }}>
-        <Toolbar toolbarClickHandler={this.toolbarClickHandler} sidebarClickHandler={this.sidebarToggleClickHandler} />
+        <Router>
+        <Toolbar sidebarClickHandler={this.sidebarToggleClickHandler} />
         <Sidebar sidebarClickHandler={this.sidebarClickHandler} show={this.state.sidebarOpen} />
         {backdrop}
         <main style={{ marginTop: '64px' }}>
-          {mainView}
-          {/* {<PersonalInfo style={{ margin_top: 100 }}></PersonalInfo>
-          <Link></Link>} */}
+          <Switch >
+            <Route path='/unity_games'>
+              <Unity_games />
+            </Route>
+            <Route path='/tic_tac_toe'>
+              <Tic_tac_toe/>
+            </Route>
+            <Route path='/hangman'>
+              <Hangman resetHangmangHandler={this.resetHangmanHandler} hangmanHandler={this.hangmanHandler} word={this.state.hangmanWord} counter={this.state.hangmanLifeCounter} hangmanCorrectCounter={this.state.hangmanCorrectCounter} />
+            </Route>
+            <Route path='/snake'>
+              <Snake snakeMoveHandler={this.snakeMoveHandler} snake={this.state.snake} />
+            </Route>
+            <Route path='/todo'>
+              <Todo />
+            </Route>
+            <Route path='/'>
+              <PersonalInfo style={{ margin_top: 100 }}></PersonalInfo>
+            </Route>
+          </Switch>
         </main>
-      </div >
+        </Router>
+      </div>
     );
   }
 
@@ -183,3 +217,6 @@ class App extends Component {
 
 
 export default App;
+// export default withRouter(connect(
+//   mapStateToProps,
+// )(App))

@@ -1,20 +1,34 @@
 import React from 'react';
 import classes from './Sidebar.module.css';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import { DropdownButton, ButtonGroup } from 'react-bootstrap';
+import Dropdown from 'react-bootstrap/Dropdown';
 
-const sidebar = props => {
+const Sidebar = props => {
+
+
     let sidebarClasses = [classes.sidebar];
-    if(props.show){
+    if (props.show) {
         sidebarClasses = [classes.sidebar, classes.open];
     }
     return (
-    <nav className={sidebarClasses.join(' ')}>
-        <ul>
-            <li><a href="/">mini projects</a></li>
-            <li><a href="/">github</a></li>
-            <li><a href="javascript:;" onClick={() => {props.sidebarClickHandler('game')}}>mini games</a></li>
-            <li><a href="/">projects</a></li>
-        </ul>
-    </nav>);
+        <div>
+            <nav className={sidebarClasses.join(' ')}>
+                <ul>
+                    <li> <Link className={classes.button} to='/'>
+                        main
+                    </Link>
+</li>
+                    <li> <Link className={classes.button} to='/unity_games'>
+                        unity games
+                    </Link></li>
+                    <li>
+                    <Link className={classes.button} to='/todo'>
+                        todo
+                    </Link></li>
+                </ul>
+            </nav>
+        </div>);
 };
 
-export default sidebar;
+export default Sidebar;

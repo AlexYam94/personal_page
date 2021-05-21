@@ -1,7 +1,7 @@
 .toolbar {
     width: 100%;
     position: fixed;
-    background: orange;
+    background: rgb(39, 156, 172);
     top: 0;
     left: 0;
     height: 56px;
@@ -23,6 +23,10 @@
 .toolbar_logo img {
     height: 58px;
     width: 70px;
+}
+
+.dropdown-menu{
+  background: rgb(39, 156, 172)!important;
 }
 
 .spacer {
@@ -54,6 +58,7 @@
   position: relative;
   display: inline-block;
   cursor: pointer;
+  margin-right: 10px;
 }
 
 .button button {
@@ -86,6 +91,10 @@ a {
   font-family: 'Muli', sans-serif;
   font-weight: 300;
   font-size: 22px;
+}
+
+p {
+  color: black;
 }
 
 @keyframes draw {
