@@ -36,3 +36,12 @@ p {
 div{
     line-height: 1;
 }
+
+@media  (max-width: 680px) {
+    p {
+      font-size: 12px !important;
+    } 
+    h2 {
+        font-size:20px !important;
+    }
+}

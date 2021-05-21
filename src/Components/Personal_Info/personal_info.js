@@ -74,7 +74,7 @@ const Personal_info = (props) => {
                 <p>When I am at my free time, I usually play some video games, read some books and developing my personal projects, which is mostly game.</p> */}
             </div>}
             </div>
-            <div style={{textAlign: "center"}} data-aos-offset={0} data-aos="fade-down" className={classes.github}>
+            <div style={{textAlign: "center"}} data-aos-offset={60} data-aos="fade-down" className={classes.github}>
                 <h2 style={{textAlign: "center"}}>github</h2>
                 <a  href="https://github.com/rm-rf-rm-rf-rm-rf?tab=overview&from=2021-05-01&to=2021-05-20" target="_blank">github page</a>
             </div>
