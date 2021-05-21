@@ -18,7 +18,8 @@ const Hangman = (props) => {
             {props.hangmanCorrectCounter > 0 ?
                 <div>
                 <DrawHangman counter={props.counter} word={props.word} hangmanHandler={props.hangmanHandler} resetHangmangHandler={props.resetHangmangHandler}/>
-                <button onClick={props.resetHangmangHandler}>Try other word</button>
+                {/* <button onClick={props.resetHangmangHandler}>Try other word</button> */}
+                <a href="https://11points.com/11-strategies-dominating-hangman/" target="_blank">tips</a>
                 </div>
                 :
                 <div>
@@ -32,7 +33,7 @@ const Hangman = (props) => {
 
 const DrawHangman = (props) => {
     let answerBoxes = props.word.split("").map((char, index) => {
-        return <input maxLength="1" key={index}
+        return <input size="3px" maxLength="1" key={index}
         onChange={(event, key) => { 
             if(!/^[a-z]$/.test(event.target.value)){
                 event.target.value="";

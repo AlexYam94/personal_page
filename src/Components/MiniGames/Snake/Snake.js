@@ -2,11 +2,7 @@ import React, { useEffect, useState, useRef } from 'react';
 import classes from './Snake.module.css';
 
 const Snake = (props) => {
-    /*TODO:
-        draw food
-        handle snake eat food
-        handle snake eat itself
-    
+    /*
         keyCode:
         w:87
         a:65
