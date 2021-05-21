@@ -1,10 +1,36 @@
 .Personal_info{
     width: 60%;
     margin: 16px auto;
+    margin-top: 300px;
     border: 1px solid #eee;
     box-shadow: 0 2px 3px #ccc;
     padding: 16px;
     text-align: center;
+}
+
+.background {
+    width: 75%;
+    margin: 16px auto;
+    margin-top: 300px;
+    border: 1px solid #eee;
+    box-shadow: 0 2px 3px #ccc;
+    padding: 16px;
+    text-align: left;
+}
+
+.github {
+    width: 75%;
+    margin: 16px auto;
+    margin-top: 100px;
+    border: 1px solid #eee;
+    box-shadow: 0 2px 3px #ccc;
+    padding: 16px;
+    text-align: left;
+}
+
+p {
+    /* display: inline-block; */
+    margin-left: 0%!important;
 }
 
 div{
