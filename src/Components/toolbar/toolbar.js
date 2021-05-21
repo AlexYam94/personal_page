@@ -3,7 +3,6 @@ import winnie from '../../winnie.JPG'
 import classes from './Toolbar.module.css';
 import SidebarToggleButton from '../Sidebar/SidebarToggleButton';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
-import { isDesktop } from 'react-device-detect';
 import Games from '../MiniGames/Tic_tac_toe/Game';
 import { DropdownButton, ButtonGroup } from 'react-bootstrap';
 import Dropdown from 'react-bootstrap/Dropdown';
@@ -44,39 +43,34 @@ const Toolbar = (props) => {
                                 {pencilCircle()}
                             </svg>
                         </Link>
-
-                        {isDesktop ?
-                            <MediaQuery minWidth={1400}>
-                                <DropdownButton style={{ marginRight: 10 }} as={ButtonGroup} key={'Info'} title='Web Games' variant='info'>
-                                    <Dropdown.Item style={{ color: 'black' }}>
-                                        <Link className={classes.button} to='/tic_tac_toe'>
-                                            <p>tic tac toe</p>
-                                            <svg viewBox="0 0 500 150" preserveAspectRatio="none">
-                                                {pencilCircle()}
-                                            </svg>
-                                        </Link>
-                                    </Dropdown.Item>
-                                    <Dropdown.Item href="#/action-2">
-                                        <Link className={classes.button} to='/hangman'>
-                                            <p>hangman</p>
-                                            <svg viewBox="0 0 500 150" preserveAspectRatio="none">
-                                                {pencilCircle()}
-                                            </svg>
-                                        </Link>
-                                    </Dropdown.Item>
-                                    <Dropdown.Item href="#/action-3">
-                                        <Link className={classes.button} to='/snake'>
-                                            <p>snake</p>
-                                            <svg viewBox="0 0 500 150" preserveAspectRatio="none">
-                                                {pencilCircle()}
-                                            </svg>
-                                        </Link>
-                                    </Dropdown.Item>
-                                </DropdownButton>
-                            </MediaQuery>
-                            :
-                            null
-                        }
+                        <MediaQuery minWidth={1200}>
+                            <DropdownButton style={{ marginRight: 10 }} as={ButtonGroup} key={'Info'} title='Web Games' variant='info'>
+                                <Dropdown.Item style={{ color: 'black' }}>
+                                    <Link className={classes.button} to='/tic_tac_toe'>
+                                        <p>tic tac toe</p>
+                                        <svg viewBox="0 0 500 150" preserveAspectRatio="none">
+                                            {pencilCircle()}
+                                        </svg>
+                                    </Link>
+                                </Dropdown.Item>
+                                <Dropdown.Item href="#/action-2">
+                                    <Link className={classes.button} to='/hangman'>
+                                        <p>hangman</p>
+                                        <svg viewBox="0 0 500 150" preserveAspectRatio="none">
+                                            {pencilCircle()}
+                                        </svg>
+                                    </Link>
+                                </Dropdown.Item>
+                                <Dropdown.Item href="#/action-3">
+                                    <Link className={classes.button} to='/snake'>
+                                        <p>snake</p>
+                                        <svg viewBox="0 0 500 150" preserveAspectRatio="none">
+                                            {pencilCircle()}
+                                        </svg>
+                                    </Link>
+                                </Dropdown.Item>
+                            </DropdownButton>
+                        </MediaQuery>
                         <Link className={classes.button} to='/todo'>
                             todo
                     <svg viewBox="0 0 500 150" preserveAspectRatio="none">
