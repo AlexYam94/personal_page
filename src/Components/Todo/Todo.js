@@ -27,7 +27,7 @@ const Todo = (props) => {
             body: JSON.stringify(data)
         }
         // fetch("http://127.0.0.1:5000/read", requestOptions)
-        fetch("http://testpy37-env.eba-re4rth2i.us-east-2.elasticbeanstalk.com/read", requestOptions)
+        fetch("https://testpy37-env.eba-re4rth2i.us-east-2.elasticbeanstalk.com/read", requestOptions)
             .then((res) => res.json())
             .then((result) => {
                 if (result.data == null) {
@@ -70,14 +70,14 @@ const Todo = (props) => {
         //     .then(response => console.log(response))
         //     .then(setTimeout(getTodos(),5000));
         // let response = await fetch("http://127.0.0.1:5000/save", requestOptions);
-        let response = await fetch("http://testpy37-env.eba-re4rth2i.us-east-2.elasticbeanstalk.com/save", requestOptions);
+        let response = await fetch("https://testpy37-env.eba-re4rth2i.us-east-2.elasticbeanstalk.com/save", requestOptions);
         console.log(response.json());
         getTodos();
     }
 
     const deleteTodo = async (id) => {
         // await fetch("http://127.0.0.1:5000/delete?id=" + id);
-        await fetch("http://testpy37-env.eba-re4rth2i.us-east-2.elasticbeanstalk.com/delete?id=" + id);
+        await fetch("https://testpy37-env.eba-re4rth2i.us-east-2.elasticbeanstalk.com/delete?id=" + id);
         getTodos();
     }
 
