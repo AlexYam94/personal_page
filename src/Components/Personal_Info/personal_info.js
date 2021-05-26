@@ -19,7 +19,7 @@ const Personal_info = (props) => {
             <div data-aos="flip-up" className={classes.Personal_info}>
                 <p>Hello, I am Alex Yam</p>
                 <br/>
-                <p>An introvert, a programmer and a hobbyist game developer who likes to implment game mechanisms</p>
+                <p>An introvert, a programmer and a hobbyist game developer</p>
                 <br/>
                 <br/>
                 <br/>
