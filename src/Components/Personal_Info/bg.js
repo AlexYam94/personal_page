@@ -18,7 +18,7 @@ const Bg = (props) => {
                 <br/>
                 <br/>
                 <br/>
-                <p>As a self-taught hobbyist game dev I enjoy implementing game mechanisms because that takes a lot of effort and creative thinking. It is both fun and challenging. It will be more challenging if I do it without a game eninge but I haven't try yet. Recently I am working on cleaning up the mess I made on my RPG protoype project.</p>
+                <p>As a self-taught hobbyist game dev I enjoy implementing game mechanisms because that takes a lot of effort and creative thinking. It is both fun and challenging. Recently I am working on cleaning up the mess I made on my RPG protoype project.</p>
                 <br/>
                 <br/>
                 <br/>
