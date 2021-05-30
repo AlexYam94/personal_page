@@ -15,15 +15,15 @@ const Sidebar = props => {
         <div>
             <nav className={sidebarClasses.join(' ')}>
                 <ul>
-                    <li> <Link className={classes.button} onClick={props.sidebarClickHandler} to='/'>
+                    <li> <Link className={classes.button} onClick={props.sidebarClickHandler} to='/personal_page'>
                         main
                     </Link>
 </li>
-                    <li> <Link className={classes.button} onClick={props.sidebarClickHandler} to='/unity_games'>
+                    <li> <Link className={classes.button} onClick={props.sidebarClickHandler} to='/personal_page/unity_games'>
                         unity games
                     </Link></li>
                     <li>
-                    <Link className={classes.button} onClick={props.sidebarClickHandler} to='/todo'>
+                    <Link className={classes.button} onClick={props.sidebarClickHandler} to='/personal_page/todo'>
                         todo
                     </Link></li>
                 </ul>

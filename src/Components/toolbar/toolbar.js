@@ -30,14 +30,14 @@ const Toolbar = (props) => {
                         {
                             // #region Router navigation
                         }
-                        <Link className={classes.button} to='/'>
+                        <Link className={classes.button} to='/personal_page'>
                             main
                     <svg viewBox="0 0 500 150" preserveAspectRatio="none">
                                 {pencilCircle()}
                             </svg>
                         </Link>
 
-                        <Link className={classes.button} to='/unity_games'>
+                        <Link className={classes.button} to='/personal_page/unity_games'>
                             unity games
                     <svg viewBox="0 0 500 150" preserveAspectRatio="none">
                                 {pencilCircle()}
@@ -46,7 +46,7 @@ const Toolbar = (props) => {
                         <MediaQuery minWidth={1200}>
                             <DropdownButton style={{ marginRight: 10 }} as={ButtonGroup} key={'Info'} title='Web Games' variant='info'>
                                 <Dropdown.Item style={{ color: 'black' }}>
-                                    <Link className={classes.button} to='/tic_tac_toe'>
+                                    <Link className={classes.button} to='/personal_page/tic_tac_toe'>
                                         <p>tic tac toe</p>
                                         <svg viewBox="0 0 500 150" preserveAspectRatio="none">
                                             {pencilCircle()}
@@ -54,7 +54,7 @@ const Toolbar = (props) => {
                                     </Link>
                                 </Dropdown.Item>
                                 <Dropdown.Item href="#/action-2">
-                                    <Link className={classes.button} to='/hangman'>
+                                    <Link className={classes.button} to='/personal_page/hangman'>
                                         <p>hangman</p>
                                         <svg viewBox="0 0 500 150" preserveAspectRatio="none">
                                             {pencilCircle()}
@@ -62,7 +62,7 @@ const Toolbar = (props) => {
                                     </Link>
                                 </Dropdown.Item>
                                 <Dropdown.Item href="#/action-3">
-                                    <Link className={classes.button} to='/snake'>
+                                    <Link className={classes.button} to='/personal_page/snake'>
                                         <p>snake</p>
                                         <svg viewBox="0 0 500 150" preserveAspectRatio="none">
                                             {pencilCircle()}
@@ -71,7 +71,7 @@ const Toolbar = (props) => {
                                 </Dropdown.Item>
                             </DropdownButton>
                         </MediaQuery>
-                        <Link className={classes.button} to='/todo'>
+                        <Link className={classes.button} to='/personal_page/todo'>
                             todo
                     <svg viewBox="0 0 500 150" preserveAspectRatio="none">
                                 {pencilCircle()}

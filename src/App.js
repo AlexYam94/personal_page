@@ -102,22 +102,22 @@ class App extends Component {
         {backdrop}
         <main style={{ marginTop: '64px' }}>
           <Switch >
-            <Route path='/unity_games'>
+            <Route path='/personal_page/unity_games'>
               <Unity_games />
             </Route>
-            <Route path='/tic_tac_toe'>
+            <Route path='/personal_page/tic_tac_toe'>
               <Tic_tac_toe/>
             </Route>
-            <Route path='/hangman'>
+            <Route path='/personal_page/hangman'>
               <Hangman resetHangmangHandler={this.resetHangmanHandler} hangmanHandler={this.hangmanHandler} word={this.state.hangmanWord} counter={this.state.hangmanLifeCounter} hangmanCorrectCounter={this.state.hangmanCorrectCounter} />
             </Route>
-            <Route path='/snake'>
+            <Route path='/personal_page/snake'>
               <Snake snakeMoveHandler={this.snakeMoveHandler} snake={this.state.snake} />
             </Route>
-            <Route path='/todo'>
+            <Route path='/personal_page/todo'>
               <Todo />
             </Route>
-            <Route path='/'>
+            <Route path='/personal_page'>
               <PersonalInfo style={{ margin_top: 100 }}></PersonalInfo>
             </Route>
           </Switch>
