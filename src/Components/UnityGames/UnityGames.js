@@ -10,6 +10,7 @@ import 'aos/dist/aos.css';
 import firstGame from './ScreenShots/firstGame.JPG';
 import blockBreaker from './ScreenShots/blockBreaker.JPG';
 import flappyBird from './ScreenShots/flappyBird.JPG';
+import rpg from './ScreenShots/rpg.jpg';
 
 const UnityGames = (props) => {
 
@@ -80,6 +81,23 @@ const UnityGames = (props) => {
           </Grid>
           <Grid container direction="column" alignItems="center" item>
             <p>Yet Another Flappy Bird</p>
+          </Grid>
+        </Grid>
+      </div>
+      <div className={classes.box} data-aos="fade-down">
+        <Grid container direction="column" spacing={1} alignItems="center">
+          <Grid container item direction="column" alignItems="center">
+            <Grid item>
+              <img src={rpg} width="200" height="200" />
+            </Grid>
+            <Grid item>
+              <a href="https://alexy369.itch.io/rpg-demo?secret=KeqdA9DFzYF88skDtBygjX3Taq8" target="_blank">
+                Play
+              </a>
+            </Grid>
+          </Grid>
+          <Grid container direction="column" alignItems="center" item>
+            <p>RPG prototype playground</p>
           </Grid>
         </Grid>
       </div>
