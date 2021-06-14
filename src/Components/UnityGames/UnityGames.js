@@ -7,10 +7,13 @@ import Col from 'react-bootstrap/Col';
 import Grid from '@material-ui/core/Grid';
 import Aos from 'aos';
 import 'aos/dist/aos.css';
+import UnityGameSegment from './UnityGameSegments';
 import firstGame from './ScreenShots/firstGame.JPG';
 import blockBreaker from './ScreenShots/blockBreaker.JPG';
 import flappyBird from './ScreenShots/flappyBird.JPG';
 import rpg from './ScreenShots/rpg.jpg';
+import fallchain from './ScreenShots/fallchain.JPG';
+
 
 const UnityGames = (props) => {
 
@@ -35,71 +38,19 @@ const UnityGames = (props) => {
   return (
     <div className={classes.grid}>
       <div className={classes.box} data-aos="fade-left">
-        <Grid container direction="column" spacing={1} alignItems="center">
-          <Grid container item direction="column" alignItems="center">
-            <Grid item>
-              <img src={firstGame} width="200" height="200" />
-            </Grid>
-            <Grid item>
-              <a href="https://alexy369.itch.io/the-meaningless?secret=Ir86pKovgDLLimiyG1tTqVS2J4" target="_blank">
-                Play</a>
-            </Grid>
-          </Grid>
-          <Grid container direction="column" alignItems="center" item>
-            <p>A game that ask player to reach the top wihout hitting any thing</p>
-          </Grid>
-        </Grid>
+        <UnityGameSegment desc="GMTK Game Jam 2021 - Fall Chain / 鏈落" url="https://alexy369.itch.io/fallchainweb" img={fallchain}/>
       </div>
       <div className={classes.box} data-aos="fade-right">
-        <Grid container direction="column" spacing={1} alignItems="center">
-          <Grid container item direction="column" alignItems="center">
-            <Grid item>
-              <img src={blockBreaker} width="200" height="200" />
-            </Grid>
-            <Grid item>
-              <a href="https://alexy369.itch.io/block-breaker" target="_blank">
-                Play
-              </a>
-            </Grid>
-          </Grid>
-          <Grid container direction="column" alignItems="center" item>
-            <p>A game that ask player to break all breakable block without the ball hitting the bottom</p>
-          </Grid>
-        </Grid>
+        <UnityGameSegment desc="RPG prototype playground" url="https://alexy369.itch.io/rpg-demo?secret=KeqdA9DFzYF88skDtBygjX3Taq8" img={rpg}/>
       </div>
       <div className={classes.box} data-aos="fade-up">
-        <Grid container direction="column" spacing={1} alignItems="center">
-          <Grid container item direction="column" alignItems="center">
-            <Grid item>
-              <img src={flappyBird} width="200" height="200" />
-            </Grid>
-            <Grid item>
-              <a href="https://alexy369.itch.io/yafp?secret=y8e7eUInmN0UF4Y8Vj6DeWHV29w" target="_blank">
-                Play
-              </a>
-            </Grid>
-          </Grid>
-          <Grid container direction="column" alignItems="center" item>
-            <p>Yet Another Flappy Bird</p>
-          </Grid>
-        </Grid>
+        <UnityGameSegment desc="Yet Another Flappy Bird" url="https://alexy369.itch.io/yafp?secret=y8e7eUInmN0UF4Y8Vj6DeWHV29w" img={flappyBird}/>
       </div>
       <div className={classes.box} data-aos="fade-down">
-        <Grid container direction="column" spacing={1} alignItems="center">
-          <Grid container item direction="column" alignItems="center">
-            <Grid item>
-              <img src={rpg} width="200" height="200" />
-            </Grid>
-            <Grid item>
-              <a href="https://alexy369.itch.io/rpg-demo?secret=KeqdA9DFzYF88skDtBygjX3Taq8" target="_blank">
-                Play
-              </a>
-            </Grid>
-          </Grid>
-          <Grid container direction="column" alignItems="center" item>
-            <p>RPG prototype playground</p>
-          </Grid>
-        </Grid>
+        <UnityGameSegment desc="A game that ask player to break all breakable block without the ball hitting the bottom" url="https://alexy369.itch.io/block-breaker" img={blockBreaker}/>
+      </div>
+      <div className={classes.box} data-aos="fade-down">
+        <UnityGameSegment desc="A game that ask player to reach the top wihout hitting any thing" url="https://alexy369.itch.io/the-meaningless?secret=Ir86pKovgDLLimiyG1tTqVS2J4" img={firstGame}/>
       </div>
     </div>
   );
