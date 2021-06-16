@@ -35,7 +35,7 @@ const Personal_info = (props) => {
             </div>
             <div style={{textAlign: "center"}} data-aos-offset={60} data-aos="fade-down" className={classes.github}>
                 <h2 style={{textAlign: "center"}}>github</h2>
-                <a  href="https://github.com/rm-rf-rm-rf-rm-rf?tab=overview&from=2021-05-01&to=2021-05-20" target="_blank">github page</a>
+                <a  href="https://github.com/alexyam94?tab=overview&from=2021-05-01&to=2021-05-20" target="_blank">github page</a>
             </div>
     </div>
         )

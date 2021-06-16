@@ -9,7 +9,7 @@ class link extends React.Component{
     render(){
         return(
             <div>
-                <a href='https://github.com/rm-rf-rm-rf-rm-rf/mini-projects' target="_blank">
+                <a href='https://github.com/alexyam94/mini-projects' target="_blank">
                     mini projects
                 </a>
                 <br/>
