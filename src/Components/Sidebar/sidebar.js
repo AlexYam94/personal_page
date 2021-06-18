@@ -18,14 +18,18 @@ const Sidebar = props => {
                     <li> <Link className={classes.button} onClick={props.sidebarClickHandler} to='/personal_page'>
                         main
                     </Link>
-</li>
+                    </li>
+                    <li>
+                        <Link className={classes.button} to='/personal_page/pixelArt'>
+                            Pixel Art
+                        </Link></li>
                     <li> <Link className={classes.button} onClick={props.sidebarClickHandler} to='/personal_page/unity_games'>
                         unity games
                     </Link></li>
                     <li>
-                    <Link className={classes.button} onClick={props.sidebarClickHandler} to='/personal_page/todo'>
-                        todo
-                    </Link></li>
+                        <Link className={classes.button} onClick={props.sidebarClickHandler} to='/personal_page/todo'>
+                            todo
+                        </Link></li>
                 </ul>
             </nav>
         </div>);

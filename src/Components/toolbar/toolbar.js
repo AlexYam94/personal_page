@@ -36,6 +36,9 @@ const Toolbar = (props) => {
                                 {pencilCircle()}
                             </svg>
                         </Link>
+                        <Link className={classes.button} to='/personal_page/pixelArt'>
+                            Pixel Art
+                        </Link>
 
                         <Link className={classes.button} to='/personal_page/unity_games'>
                             unity games
