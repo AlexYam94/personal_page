@@ -10,6 +10,7 @@ import Tic_tac_toe from './Components/MiniGames/Tic_tac_toe/Game';
 import Hangman from './Components/MiniGames/Hangman/Hangman';
 import Snake from './Components/MiniGames/Snake/Snake';
 import Todo from './Components/Todo/Todo';
+import PixelArt from './Components/PixelArts/PixelArt';
 import words from './words';
 
 class App extends Component {
@@ -116,6 +117,9 @@ class App extends Component {
             </Route>
             <Route path='/personal_page/todo'>
               <Todo />
+            </Route>
+            <Route path='/personal_page/pixelArt'>
+              <PixelArt/>
             </Route>
             <Route path='/personal_page'>
               <PersonalInfo style={{ margin_top: 100 }}></PersonalInfo>
