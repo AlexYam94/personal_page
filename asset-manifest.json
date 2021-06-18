@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.css": "/personal_page/static/css/main.f9fcc6df.chunk.css",
-    "main.js": "/personal_page/static/js/main.4dc0ea20.chunk.js",
-    "main.js.map": "/personal_page/static/js/main.4dc0ea20.chunk.js.map",
+    "main.css": "/personal_page/static/css/main.e8cf6039.chunk.css",
+    "main.js": "/personal_page/static/js/main.d2096085.chunk.js",
+    "main.js.map": "/personal_page/static/js/main.d2096085.chunk.js.map",
     "runtime-main.js": "/personal_page/static/js/runtime-main.5d1b05b6.js",
     "runtime-main.js.map": "/personal_page/static/js/runtime-main.5d1b05b6.js.map",
     "static/css/2.10d5a207.chunk.css": "/personal_page/static/css/2.10d5a207.chunk.css",
-    "static/js/2.ef583022.chunk.js": "/personal_page/static/js/2.ef583022.chunk.js",
-    "static/js/2.ef583022.chunk.js.map": "/personal_page/static/js/2.ef583022.chunk.js.map",
+    "static/js/2.9142672f.chunk.js": "/personal_page/static/js/2.9142672f.chunk.js",
+    "static/js/2.9142672f.chunk.js.map": "/personal_page/static/js/2.9142672f.chunk.js.map",
     "index.html": "/personal_page/index.html",
-    "precache-manifest.79ee94abf158e00f9d190ecbcdba58b1.js": "/personal_page/precache-manifest.79ee94abf158e00f9d190ecbcdba58b1.js",
+    "precache-manifest.6aecc3779f0a1eb5f2048740f80cb25d.js": "/personal_page/precache-manifest.6aecc3779f0a1eb5f2048740f80cb25d.js",
     "service-worker.js": "/personal_page/service-worker.js",
     "static/css/2.10d5a207.chunk.css.map": "/personal_page/static/css/2.10d5a207.chunk.css.map",
-    "static/css/main.f9fcc6df.chunk.css.map": "/personal_page/static/css/main.f9fcc6df.chunk.css.map",
-    "static/js/2.ef583022.chunk.js.LICENSE.txt": "/personal_page/static/js/2.ef583022.chunk.js.LICENSE.txt",
+    "static/css/main.e8cf6039.chunk.css.map": "/personal_page/static/css/main.e8cf6039.chunk.css.map",
+    "static/js/2.9142672f.chunk.js.LICENSE.txt": "/personal_page/static/js/2.9142672f.chunk.js.LICENSE.txt",
     "static/media/blockBreaker.JPG": "/personal_page/static/media/blockBreaker.0a0f87ff.JPG",
     "static/media/fallchain.JPG": "/personal_page/static/media/fallchain.f0c78e5e.JPG",
     "static/media/firstGame.JPG": "/personal_page/static/media/firstGame.cd10ccda.JPG",
@@ -25,8 +25,8 @@
   "entrypoints": [
     "static/js/runtime-main.5d1b05b6.js",
     "static/css/2.10d5a207.chunk.css",
-    "static/js/2.ef583022.chunk.js",
-    "static/css/main.f9fcc6df.chunk.css",
-    "static/js/main.4dc0ea20.chunk.js"
+    "static/js/2.9142672f.chunk.js",
+    "static/css/main.e8cf6039.chunk.css",
+    "static/js/main.d2096085.chunk.js"
   ]
 }
