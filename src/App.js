@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Switch, withRouter} from 'react-router-dom'
+import { BrowserRouter as Router, Route, Switch, HashRouter} from 'react-router-dom'
 import './App.css';
 import PersonalInfo from './Components/Personal_Info/Personal_info';
 import Toolbar from './Components/toolbar/Toolbar';
@@ -97,7 +97,7 @@ class App extends Component {
 
     return (
       <div style={{ height: '100%' }}>
-        <Router>
+        <HashRouter>
         <Toolbar sidebarClickHandler={this.sidebarToggleClickHandler} />
         <Sidebar sidebarClickHandler={this.sidebarClickHandler} show={this.state.sidebarOpen} />
         {backdrop}
@@ -124,9 +124,12 @@ class App extends Component {
             <Route path='/personal_page'>
               <PersonalInfo style={{ margin_top: 100 }}></PersonalInfo>
             </Route>
+            <Route path='*'>
+              <PersonalInfo style={{ margin_top: 100 }}></PersonalInfo>
+            </Route>
           </Switch>
         </main>
-        </Router>
+        </HashRouter>
       </div>
     );
   }
@@ -221,6 +224,3 @@ class App extends Component {
 
 
 export default App;
-// export default withRouter(connect(
-//   mapStateToProps,
-// )(App))
